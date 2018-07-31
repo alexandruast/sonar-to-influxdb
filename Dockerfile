@@ -8,13 +8,13 @@ WORKDIR $APP_HOME
 COPY . .
 
 RUN pip install -r requirements.txt \
-&& python sonar-to-influxdb.py
+&& python sonar-to-influxdb.py -h
 
 FROM python:3.6-alpine
 
 COPY [ \
   "requirements.txt", \
-  "sonar-to-influxdb.py -h", \
+  "sonar-to-influxdb.py", \
    "/" \
 ]
 
