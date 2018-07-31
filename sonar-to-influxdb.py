@@ -2,11 +2,9 @@
 # coding=utf-8
 
 __author__ = 'alexandruast'
-CONFIG_FILE = 'sonar-to-influxdb.yml'
 
 import requests
 import datetime
-import yaml
 import argparse
 
 from influxdb import InfluxDBClient
@@ -39,17 +37,6 @@ class DBClient:
             database=self.database
         )
         db_client.write_points(d_metrics)
-
-
-def parse_config(file):
-    try:
-        d_config = yaml.load(
-            open(file)
-        )
-    except Exception as e:
-        e.args += file,
-        raise
-    return d_config
 
 
 def get_ids(sonar_client, meta):
