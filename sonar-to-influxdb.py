@@ -108,7 +108,9 @@ def main():
     comma_separated_metrics = ''
 
     for metric in metrics:
-        comma_separated_metrics += metric + ','
+        # Some metrics throw errors if invoked, why? - Unsupported metric type 'STRING' for numerical value
+        if metric != "new_development_cost":
+            comma_separated_metrics += metric + ','
     comma_separated_metrics = comma_separated_metrics.rstrip(',')
 
     for item in ids:
