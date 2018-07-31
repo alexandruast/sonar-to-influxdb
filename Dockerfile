@@ -14,7 +14,7 @@ FROM python:3.6-alpine
 
 COPY [ \
   "requirements.txt", \
-  "sonar-to-influxdb.py", \
+  "sonar-to-influxdb.py -h", \
    "/" \
 ]
 
